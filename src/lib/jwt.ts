@@ -28,7 +28,7 @@ export function generateToken(payload: JwtPayload): string {
 export async function verifyToken(token: string): Promise<JwtPayload> {
   try {
     const decoded = await jwt.verify(token, JWT_SECRET);
-    return decoded as JwtPayload; \
+    return decoded as JwtPayload;
   } catch (err) {
     throw err;
   }
