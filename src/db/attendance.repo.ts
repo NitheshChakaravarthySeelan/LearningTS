@@ -1,8 +1,4 @@
-import { Schema, model, Document, Types } from "mongoose";
-import { IClass } from "../db/class.repo.ts"
-import { IUser } from "./user.repo.ts"
-
-export interface IAttendance extends Document {
+import { Schema, model, Document, Ty {
   classId: IClass['_id'] | IClass;
   studentId: IUser['_id'] | IUser;
   status: 'Present' | 'Abscent';
@@ -22,7 +18,9 @@ const attendanceSchema = new Schema<IAttendance>(
       },
     ],
   },
-  {timestamps: true}
+  { timestamps: true }
 );
 
-export default Attendance = model<IAttendance>('Attendance', attendanceSchema)
+const Attendance = model<IAttendance>('Attendance', attendanceSchema);
+
+export default Attendance;

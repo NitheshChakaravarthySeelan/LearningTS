@@ -2,9 +2,11 @@ import { Elysia, t } from "elysia";
 import { teacherOnly } from "../middlewares/teacherOnly.ts";
 import { auth } from "../middlewares/auth.ts";
 import { createClass, addStudentToClass, getClassById } from "../services/class.service.ts";
+import { isClassOwner } from "../middlewares/ownership.ts";
 
 const teacherRoutes = new Elysia()
   .use(teacherOnly)
+  .use(isClassOwner)
   .post("/", async ({ body, set, user }) => {
     const createdClass = await createClass(body.className, user.userId);
     set.status = 201;
