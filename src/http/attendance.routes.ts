@@ -36,7 +36,7 @@ const attendanceStudentRoute = new Elysia()
     };
   });
 
-const attendanceRoute = new Elysia({ prefix: "/attendance" })
+export const attendanceRoutes = new Elysia({ prefix: "/attendance" })
   .use(auth)
   .use(attendanceTeacherRoute)
   .use(attendanceStudentRoute)

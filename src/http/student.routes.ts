@@ -3,7 +3,7 @@ import { teacherOnly } from "../middlewares/teacherOnly.ts";
 import { auth } from "../middlewares/auth.ts";
 import { getAllStudents } from "../services/class.service";
 
-const studentRouter = new Elysia({ prefix: "/students" }
+export const studentRouter = new Elysia({ prefix: "/students" })
   .use(auth)
   .use(teacherOnly)
   .get("", async (set) => {
@@ -13,5 +13,5 @@ const studentRouter = new Elysia({ prefix: "/students" }
       success: true,
       data: students
     };
-  })
-);
+  });
+
